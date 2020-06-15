@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- HEAD BEGINS  -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- TITLE OF WEBSITE -->
+    <title> AKP - Online Restaurants Service </title>
+    <!-- LINK OF CSS FILE-->
+    <link rel="stylesheet" href="static/Css/style.css">
+
+    <!-- FONTS FOR WEBSITE -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@562&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:ital@1&family=Great+Vibes&family=Libre+Baskerville:ital@1&family=Open+Sans:wght@300&family=Oswald:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Yellowtail&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- WEBSITE ICONS  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- JQUERY LINK -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<!-- HEAD ENDS -->
+<!-- BACK END ERROR VALIDATION -->
+
+<body>
+    
+    <!-- ........ HEADER SECTION BEGINS ........ -->
+
+    <header class="header" id="header">
+        
+        <div class="header_container">
+           
+            <!-- NAME OF RESTAURANT => #BRAND -->
+            
+                <div class="nav_heading">
+                    <h1>AKP</h1>
+                </div>
+
+            <!-- HAMBURGER MENU -->
+            <div class="hamburger"  onclick="toggle()">
+                <a class="icon">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+            <!-- HEADING FINSIHED -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              <ul class=flashes>
+              {% for category, message in messages %}
+                <li class="{{ category }}" style=" font-size: 25px;background-color: dodgerblue; text-align: center;font-family: 'Open Sans', sans-serif;font-style: italic; font-weight: 100;"><strong>{{ message }}</strong></li>
+              {% endfor %}
+              </ul>
+            {% endif %}
+          {% endwith %}
+            <!-- NAV BAR BEGIN  -->
+            <nav class="nav display" id="nav" >
+                <ul class="navbar">
+                    <li class="nav_items" id="navhome" ><a href="#slideshow" id="navitem1" onclick="nav(this.id); off()" class="navlist">home</a></li>
+                    <li class="nav_items" id="navabout"><a href="#about_us" id="navitem2"onclick="nav(this.id); off()" class="navlist">about </a></li>
+                    <li class="nav_items" id="navmenu"><a href="#menu" id="navitem3" onclick="nav(this.id); off()" class="navlist">menu </a></li>
+                    <li class="nav_items" id="navgallery"><a href="#gallery" id="navitem4" onclick="nav(this.id); off()" class="navlist">gallery </a></li>
+                    <li class="nav_items" id="navreservations"><a href="#reservations" id="navitem5" onclick="nav(this.id); off()" class="navlist">reservations </a></li>
+                    <li class="nav_items" id="navlocation"><a href="#contact" id="navitem6" onclick="nav(this.id); off()" class="navlist">location </a></li>
+                </ul>
+            </nav>
+            <!-- NAV BAR ENDS -->
+
+
+        </div>
+       
+    </header>
+    <!-- ........ HEADER SECTION ENDS ........ -->
+
+    <!-- ........ SLIDESHOW SECTION BEGINS ........ -->
+    <section class="slideshow" id="slideshow">
+        <div class="slideshow_container">
+            <!-- SLIDESHOW OF IMAGES START -->
+            <div class="home_slideshow">
+                <div class="slides">
+                     <img src="static/Css/Images/slide1-min.jpg" alt="Css/Images/slide1.jpg" >
+                     <div class="caption">
+                         <p> BEST KAWAB IN PRYAGRAJ </p>
+                    </div> 
+                </div>
+                <div class="slides">
+                    <img src="static/Css/Images/slide2-min.jpg" alt="Css/Images/slide2.jpg" >
+                    <div class="caption" > 
+                        <p> WELCOME TO AKP </p>
+                    </div> 
+                </div>
+                <div class="slides">
+                    <img src="static/Css/Images/slide3-min.jpg" alt="Css/Images/slide3.jpg" >
+                    <div class="caption">
+                        <p> ALLAHABAD KAWAB PARATHA </p>
+                    </div> 
+                </div>
+                <!-- OVERLAY LOGO OF RESTAURANT -->
+                <div class="overlay"></div>
+                
+                
+                <!-- LINE SEPERATOR , SUBTEXT AND ANIMATED ARROW -->
+                <div class="line"></div>
+                <div class="header_last_text">
+                    <p>Address: 5/A, Atala Front of Islamia College, Shaukat Ali Rd, Prayagraj , <br>Phone No.: 098391 87804 </p>
+                </div>
+                <div class="animatedarrow">
+                    <div class="circle">
+                        <a class="fa fa-angle-double-down" id="fas" href="#about_us"></a>
+                    </div>
+                </div>
+                <!-- LINE SEPERATOR , SUBTEXT AND ANIMATED ARROW  ENDS -->
+            </div>
+            <!-- SLIDESHOW OF IMAGES END -->
+        </div>
+    </section>
+    <!-- ........SLIDESHOW SECTION ENDS............ -->
+    
+    <!--............ABOUT US BEGINS.............  -->
+    <section class="about" id="about_us">
+        <div class="about_container">
+            <div class="about_title">
+                <!-- TITLE OF SECTION -->
+                <h1>About Us</h1>
+            </div>
+
+            <!-- SUBTEXT OF SECTION -->
+            <div class="about_subtext">
+                <p>
+                    We love restaurants as much as you do. 
+                   That’s why we’ve been helping them fill tables since 1942.
+                   Welcome to AKP restaurant.
+                </p>
+
+            </div>
+
+             <!-- TITLE OF CONTENT OF SECTION -->
+            <div class="about_title about_text_title">
+
+                <h1> The History</h1>
+
+            </div>
+             <!-- CONTENT OF SECTION AND SLIDESHOW -->
+            <div class="about_text text_1 text">
+                <p> The <strong>Allahabad Kabab Paratha </strong> is in the restaurant business since 1942. Start with just one person Now we are grown to a happy family of 15 employees and hundreds of customers. We always have one belief and that is <strong>'We trust in our quality'</strong>, We trust that the quality of our meals will bring joy and happiness to your face. This initiative of the well being of our customers kept us going all these years. Now we hope that you will continue to shower us with your deep love and affection for the upcoming years and we will shower your bellies with the most delicious food in Allahabad.</p>
+               
+                
+
+            </div>
+
+
+            <div class="about_slideshow_01">
+        
+                    <img src="static/Css/Images/about01-min.jpg" alt="AboutUs Section" class="about_slides" >
+                    <img src="static/Css/Images/about02-min.jpg" alt="AboutUs Section" class="about_slides">
+                    <img src="static/Css/Images/about03-min.jpg" alt="AboutUs Section" class="about_slides">        
+            </div>
+
+            
+             <div class="about_slideshow_02">     
+    
+              <img src="static/Css/Images/about04-min.jpg" alt="AboutUs Section" class="about_slides_2">
+              <img src="static/Css/Images/about05-min.jpg" alt="AboutUs Section" class="about_slides_2">
+              <img src="static/Css/Images/about06-min.jpg" alt="AboutUs Section" class="about_slides_2">       
+      
+            </div>   
+
+            <div class="about_text  text text_2">
+
+                <p>
+                    We are glad to tell you that our menu is filled with a lot of mouth-watering dishes that can satisfy your cravings.  But If you are new to our restaurant. We humbly request you to try 'Seekh Kawab', one of our most selling dishes and You will love it. If you can't come to our restaurant don't worry we will come to <strong> You can click here to order our food online => <a href="https://www.zomato.com/allahabad/allahabad-kabab-paratha-kareli" style="text-decoration: none;" target="_blank">Zomato.</a></strong> 
+                </p>
+
+                <p style="margin-top: 12%;">
+                    If there is any problem or for any enquiry you can contact us at <strong>9839187804.</strong> Or you can fill up this contact form and we will reach out to you.<a href="#contact" style="text-decoration: none;" ><strong>Contact.</strong></a>
+                    
+
+                </p>
+                
+                 
+            </div>
+
+            <!-- CONTENT OF SECTION  AND SLIDESHOW ENDS-->
+            
+        </div>
+    </section>
+    <!--............ABOUT US ENDS.............  -->
+
+    <!-- ........ TIMETABLE SECTION BEGINS ........ -->
+    
+    <section id = "timetable">
+        <!-- BG IMAGE OF SECTION -->
+        <div class="bgimage"></div>
+
+        <div class="timetable_container" id = "timetable">
+            <!-- HEADING OF SECTION -->
+            <div class="timetable_heading">
+              <h1>OPENING HOURS</h1>
+            </div>
+
+            <!-- SUBTEXT OF SECTION -->
+            <div class="timetable_subtext">
+              <p>Call Us For A Reservation</p>
+            </div>
+            
+            <!-- CONTENT OF SECTION --> 
+
+            <div class="timetable_info">
+              <div class="info">
+                  
+                <!-- FIRST pART OF SECTION  -->
+                <div class="first">
+                  <div class="day day1">
+                    <p> EveryDay </p>
+                  </div>
+
+                  <div class="time time1">
+                    <p> 04 :00 PM <br> 01 : 00 AM </p>
+                  </div>
+              </div>
+
+              <!-- FIRST pART OF SECTION  -->
+              <!-- <div class="second">
+                <div class="day day1">
+                  <p> Tuesday to Friday </p>
+                </div>
+
+                <div class="time time1">
+                  <p> 12 :00 <br>  5 : 00 </p>
+                </div>
+              </div>  -->
+
+            </div>
+            <!-- CONTACT DETAILS   -->
+              <div class="call">
+                <p> CALL US AT : 9839187804 </p>
+            </div>
+            </div>
+
+      </div>
+    </section>
+
+    <!-- >...............  TIMETABLE SECTION ENDS  ..........<-->
+
+    <!-- >...............  MENU SECTION BEGINS  ..........<-->
+
+    <section class="menu" id="menu">
+        <div class="menu_container">
+            <!-- MENU LOGO -->
+            <div class="menulogo">
+                <img src="static/Css/Images/menu_logo.png" alt="Menu Logo">
+            </div>
+            <!-- ENTIRE MENU => MAIN COURSE AND OTHER => .details has description of meal , while .cash has price  -->
+            <div class="menuItems">
+                <div class="steaks">
+                    <!-- HEADING OF FIRST SECTION -->
+                    <h1 class="category"> MAIN ITEMS </h1>
+                    <div class="meals">
+                        <ul>
+                            <li>
+                                <!-- MEAL HEADING -->
+                                <div class="mealheading">
+                                    SPECIAL PARATHA
+                                </div>
+                                <!-- MEAL DETAILS -->
+                                <div class="details">
+                                    FILLED WITH SOME VEGES AND HOT SIZLING SAUCE
+                                    </div>
+                                <!-- MEAL pRICE -->
+                                <div class="cash">
+                                    Rs20/-
+                                </div>
+                            </li>
+                            <li>
+                                <div class="mealheading">
+                                    SPECIAL CHICKEN SEEK KABAB
+                                </div>
+                                <div class="details">
+                                    MUST TRY FOR CHICKEN LOVERS
+                                </div>
+                                <div class="cash">
+                                    Rs40/-
+                                </div>
+                            </li>
+                            <li>
+                                <div class="mealheading">
+                                    SPECIAL CHICKEN ROASTED
+                                </div>
+                                <div class="details">
+                                    FULL PLATE
+                                </div>
+                                <div class="cash">
+                                    Rs240/-
+                                </div>
+                            </li>
+                            <li>
+                                <div class="mealheading">
+                                    MUTTON KORMA 
+                                </div>
+                                <div class="details">
+                                   FULL PLATE
+                                </div>
+                                <div class="cash">
+                                    Rs400/-
+                                </div>
+                            </li>
+                        </ul>  
+
+                    </div>
+                </div>
+                <div class="drinks">
+                    <h1 class="category"> KABAB </h1>
+                    <div class="meals">
+                        <ul>
+                            <li>
+                                <div class="mealheading">
+                                    Beef Seek Kabab
+                                </div>
+                                <div class="details">
+                                    ROLLED WITH THE RICHNESS OF OUR DELICIOUS KABAB
+                                </div>
+                                <div class="cash">
+                                    Rs20/-
+                                </div>
+                            </li>
+                            <li>
+                                <div class="mealheading">
+                                    Chicken Seek Kabab
+                                </div>
+                                <div class="details">
+                                     Best Medicine after a tired work day 
+                                </div>
+                                <div class="cash">
+                                    Rs25/-
+                                </div>
+                            </li>
+                            <li>
+                                <div class="mealheading">
+                                    Special Beef Seek Kabab
+                                </div>
+                                <div class="details">
+                                   ENHANCED VERSIONN OF OUR BEEF SEEK KABAB
+                                </div>
+                                <div class="cash">
+                                    Rs35/-
+                                </div>
+                            </li>
+                            <li>
+                                <div class="mealheading">
+                                    Special Mutton Seek Kabab
+                                </div>
+                                <div class="details">
+                                    NOURISH THE TRUE TASTE OF MUTTON
+                                </div>
+                                <div class="cash">
+                                    Rs50/-
+                                </div>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                </div>
+                <div class="deserts">
+                    <h1 class="category"> FISH </h1>
+                    <div class="meals">
+                        <ul>
+                            <li>
+                                <div class="mealheading">
+                                   Fish Fry
+                                </div>
+                                <div class="details">
+                                    Bone Less 1 Kg
+                                </div>
+                                <div class="cash">
+                                    Rs360/-
+                                </div>
+                            </li>
+                            <li>
+                                <div class="mealheading">
+                                   Fish Fry
+                                </div>
+                                <div class="details">
+                                    Bone Less 500 gm
+                                </div>
+                                <div class="cash">
+                                    Rs180/-
+                                </div>
+                            </li>
+                            <li>
+                                <div class="mealheading">
+                                   Fish Fry
+                                </div>
+                                <div class="details">
+                                    1 Bone 1 Kg
+                                </div>
+                                <div class="cash">
+                                    Rs300/-
+                                </div>
+                            </li>
+                            <li>
+                                <div class="mealheading">
+                                    Fish Fry 
+                                </div>
+                                <div class="details">
+                                    1 Bone 500 gm
+                                </div>
+                                <div class="cash">
+                                    Rs150/-
+                                </div>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                </div>
+            <!-- ENTIRE MENU ENDS -->
+            </div>
+             <!-- BUTTON FOR VIEWING FULL MENU -->
+            <div class="menubutton">
+            <a href="https://drive.google.com/file/d/19woNQ8zO8SsfVl7tthHLVnSWilaXEnzT/view?usp=drivesdk" target="_blank"><input type="button" value=" View Complete Menu "></a>
+            </div>
+        </div> 
+    </section>
+
+    <!-- >...............  MENU SECTION ENDS  ..........<-->
+
+    <!-- >...............  GALLERY SECTION BEGINS  ..........<-->
+
+    <section class="gallery" id="gallery">
+        <div class="gallery_container">
+            <!-- SECTION HEADING -->
+            <div class="gallery_heading">
+                <h1>gallery</h1>
+            </div>
+            <!-- SECTION NAVBAR -->
+            <div class="gallery_nav">
+                <!-- NAV BAR BEGIN  -->
+            <nav class="nav_gallery">
+                <ul class="image_menu">
+                    <li class="gallery_nav_items"><a onclick="gallerynav(this.id) ; image()" class="navlink active" id="navlink1">All Photos</a></li>
+                    <li class="gallery_nav_items"><a onclick="gallerynav(this.id) ; restaurant() " class="navlink" id="navlink2">Restaurants</a></li>
+                    <li class="gallery_nav_items"><a onclick="gallerynav(this.id) ; kawab() " class="navlink" id="navlink3">Kawab</a></li>
+                    <li class="gallery_nav_items"><a onclick="gallerynav(this.id) ; deserts() " class="navlink" id="navlink4">Deserts</a></li>
+                </ul>
+            </nav>
+            <!-- NAV BAR ENDS -->
+            </div>
+            <!-- IMAGES OF GALLERY SECTION -->
+            <div class="gallery_images">
+                <img src="static/Css/Images/gallery01-min.jpeg" alt="GALLERY01" class="food" id="img1">
+                <img src="static/Css/Images/gallery02-min.jpeg" alt="GALLERY02" class="food" id="img2">
+                <img src="static/Css/Images/gallery03-min.jpg" alt="GALLERY03" class="food" id="img3">
+                <img src="static/Css/Images/gallery04-min.JPG" alt="GALLERY04" class="deserts" id="img4">
+                <img src="static/Css/Images/gallery05-min.jpg" alt="GALLERY05" class="deserts" id="img5">
+                <img src="static/Css/Images/gallery06-min.jpeg" alt="GALLERY06" class="deserts" id="img6">
+                <img src="static/Css/Images/gallery07-min.JPG" alt="GALLERY07" class="kawab" id="img7">
+                <img src="static/Css/Images/gallery08-min.jpg" alt="GALLERY07" class="kawab" id="img8">
+                <img src="static/Css/Images/gallery09-min.JPG" alt="GALLERY09" class="kawab" id="img9">
+            </div>
+        </div>
+    </section>
+
+    <!-- >...............  GALLERY SECTION ENDS  ..........<-->
+
+    <!-- >...............  RESERVATIONS SECTION BEGINS  ..........<-->
+
+    <section class="reservations" id="reservations">
+        <div class="reservation_container">
+            <!-- RESERVATION SECTION HEADING -->
+            <div class="reservation_heading">
+                <h2> Reservation </h2>
+            </div>
+
+            <!-- RESERVATION SECTION SUBTEXT -->
+            <div class="reservation_subtext">
+                <p> 
+                    Booking a table has never been so easy with free &amp; instant online restaurant reservations,
+                     booking now!!
+                </p>
+            </div>
+            <!-- RESERVATION LOGO -->
+            <div class="reservation_logo">
+                <img src="static/Css/Images/reservation_logo.png" alt="LOGO">
+            </div>
+
+            <!-- CONTENT AND FORM  OF SECTION -->
+            <div class="reservation_info">
+                <h2 class="reservation_info_1"> Welcome To AKP </h2>
+                <h1 class="reservation_info_2">MAKE A RESERVATION </h1>
+                <h2 class="reservation_info_1"> Open To All </h2>
+            </div>
+
+            <div class="reservation_form">
+                
+            <div class="book_table_form">
+                
+
+                <form class="table" action="/reserve" method="post">
+        
+                <div class="bookform">
+                    <h2> Book A Table </h2>
+                    <input type="text" name="name" id="name" placeholder="Name">
+                    <input type="email" name="email" id="email" placeholder="Email">
+                    <input type="number" name="number" id="number" placeholder="Number">
+                </div>
+                <div class="contactform">
+                    <h2> Contact Details </h2>
+                    <input type="date" name="date" id="date" placeholder="Write date in format : yyyy-mm-dd">
+                    <input type="text" name="time" id="time" placeholder=" Write time in hours: 12hrs">
+                    <input type="text" name="party" id="party" placeholder="Party">
+                </div>  
+                <div class="reservation_message">
+                    <textarea  id="" cols="30" rows="10" class="reservetext"placeholder="Message" name="msg"></textarea>
+                </div>
+                <div class="menubutton reservation_button">
+                    <input type="submit" value="Reserve Your Table">
+                </div>
+                </form>
+
+            </div>
+
+            <!-- <div class="book_table_form">
+
+                <h2> Contact Details </h2>
+                <form class="table">
+                    <input type="text" name="date" id="date" placeholder="Date">
+                    <input type="text" name="time" id="time" placeholder="Time">
+                    <input type="text" name="party" id="party" placeholder="Party">
+                </form>
+            </div> -->
+            <!-- FORM ENDS -->
+        </div>
+
+        <!-- <div class="reservation_message">
+            <textarea name="Reservation" id="" cols="30" rows="10" class="reservetext"placeholder="Message"></textarea>
+        </div>
+        <div class="menubutton reservation_button">
+            <input type="button" value="Reserve Your Table">
+        </div> -->
+    </section>
+
+    <!-- >...............  RESERVATIONS SECTION ENDS  ..........<-->
+
+    <!-- >...............  TESTIMONIALS SECTION BEGINS  ..........<-->
+
+    <section class="testimonials" id="testimonials">
+        <div class="testimonials_container">
+            <!-- TESTIMONIALS BACKGROUND -->
+            <div class="testimonial_bgImage"></div>
+            <!-- TESTIMONIALS HEADING -->
+            <div class="testimonials_heading">
+                 <h1>testimonials</h1>
+             </div>
+            <!-- TESTIMONIALS SLIDESHOW CONTENT -->
+             <div class="testimonials_content">
+                 <p id="content1" class="content">
+                    Best in area and famous too because they deliver quality food. This is the original Allahabad Kabab Paratha and rest has just copied the name to get famous.
+                    <br>
+                    <span> MOHAMMED SHAHBAZ HASHIM </span>
+                </p>
+
+                <p id="content2" class="content">
+                    Its a good place for kabab paratha lovers, easy to access, cheap yet good. A little bit cozy. Good for friends to hangout.
+                    <br>
+                    <span> ZEESHAN HUSAIN </span>
+                </p>
+
+                <p id="content3" class="content">
+                    One of the best taste in allahabad..Go once if you looking for taste.
+                    <br>
+                    <span> ADIL SIDDIQUI </span>
+                </p>
+
+             </div>
+             <!-- TESTIMONIALS SLIDESHOW CONTENT ENDS -->
+        </div>
+    </section> 
+
+    <!-- >...............  TESTIMONIALS SECTION ENDS  ..........<-->
+
+    <!-- >...............  CONTACT SECTION BEGINS  ..........<-->
+
+    <section class="contact" id="contact">
+        <div class="contact_container">
+            <!-- CONTACT HEADING -->
+            <div class="contact_heading">
+                <h3>CONTACT</h3>    
+            </div>
+            <!-- CONTACT FORM -->
+            <div class="contact_form">
+                <div class="upperform">
+                    <form action="/contact" method="post">
+                        <input type="text" name="name" id="contactName" placeholder="Name" class="contactform">
+                        <input type="text" name="email" id="contactemail" placeholder="Email" class="contactform">
+                        <input type="text" name="number" id="contactnumber"placeholder="Number" class="contactform" >
+                        <div class="lowerform">
+                            <textarea name="msg" id="contactdescription" cols="30" rows="14" placeholder="Message" class="contactform_messagebox"></textarea>
+                        </div>
+                        <!-- CONTACT BUTTON -->
+                        <div class="contactform_submitbutton">
+                            <input type="submit" value="Submit">
+                        </div>
+
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- >...............  CONTACT SECTION ENDS  ..........<-->
+
+    <!-- >...............  MAp SECTION BEGINS  ..........<-->
+
+    <section class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1801.6163211351652!2d81.82535229212948!3d25.430484633708755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3985352bb9f0962f%3A0xed91f9c43eae6853!2sAllahabad%20Kabab%20Paratha!5e0!3m2!1sen!2sin!4v1591868356412!5m2!1sen!2sin" width="100%" height="400px" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" id="location"></iframe>
+    </section>
+
+    <!-- >...............  MAp SECTION ENDS  ..........<-->
+
+    <!-- >...............  FOOTER SECTION BEGINS  ..........<-->
+
+    <footer class="footer">
+		<div class="social_menu">
+			<i class="fa fa-envelope" class="social_icon"></i>
+			<i class="fa fa-facebook" class="social_icon"></i>
+			<i class="fa fa-instagram" class="social_icon"></i>
+			<i class="fa fa-whatsapp" class="social_icon"></i>
+		</div>
+    </footer>
+    
+    <!-- >...............  FOOTER SECTION ENDS  ..........<-->
+
+</body>
+    <!-- LINK OF JAVASCRIpT FILE -->
+    <script src="static/Javascript/script.js"></script>
+</html>
+
+<!-- THIS WAS ELIXIR WEBSITE => MADE BY ARTECH DEVELOPERS  -->
